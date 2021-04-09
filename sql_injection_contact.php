@@ -8,6 +8,9 @@ try {
 
 $sql = "INSERT INTO contacts (name, email, message) VALUES ('{$_POST['name']}', '{$_POST['email']}', '{$_POST['message']}')";
 
+?>
+    <h1>Executing :<?php echo $sql; ?></h1>
+<?php
 try {
     if ($db->exec($sql)) {
 ?><h1>Inserted!</h1><?php
