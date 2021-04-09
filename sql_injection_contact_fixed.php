@@ -6,13 +6,19 @@ try {
     die($exception->getMessage());
 }
 
-$sql = "INSERT INTO contacts (name, email, message) VALUES ('{$_POST['name']}', '{$_POST['email']}', '{$_POST['message']}')";
+$sql = "INSERT INTO contacts (name, email, message) VALUES (:name, :email, :message)";
 
 ?>
     <p>Executing: <pre><?php echo $sql; ?></pre></p>
 <?php
+$st = $db->prepare($sql);
+
 try {
-    if ($db->exec($sql)) {
+    if ($st->execute([
+        'name' => $_POST['name'],
+        'email' => $_POST['email'],
+        'message' => $_POST['message'],
+    ])) {
 ?><h1>Inserted!</h1><?php
     } else {
         ?><h1>Not inserted :( <?php echo print_r($db->errorInfo(), 1);?> </h1><?php
