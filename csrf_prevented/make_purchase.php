@@ -3,7 +3,9 @@
 session_start();
 
 if (array_key_exists('uid', $_SESSION)) {
-	$_SESSION['balance'] -= $_POST['price'];
+	if (array_key_exists('csrfToken', $_POST) && $_SESSION['csrfToken'] === $_POST['csrfToken']) {
+		$_SESSION['balance'] -= $_POST['price'];
+	}
 	
 	header('Location: show_balance.php');
 } else {
