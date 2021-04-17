@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Command injection example</title>
 </head>
 <body>
-$END$
+    <form action="command_injection.php" method="post">
+        <label for="ip">IP address</label>
+        <input name="ip" id="ip">
+        <label for="c">c</label>
+        <input name="c" id="c">
+        <input type="submit" value="Send"/>
+    </form>
 </body>
 </html>
