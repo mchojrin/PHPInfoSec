@@ -73,5 +73,8 @@ Vagrant.configure("2") do |config|
     a2ensite 001-vagrant.conf
     a2dissite 000-default.conf
     service apache2 reload
+    echo "No delete" > /vagrant/command_injection/data/test.txt
+    chmod o+x /vagrant/command_injection/data
+    chmod o+w /vagrant/command_injection/data/test.txt
   SHELL
 end

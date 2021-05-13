@@ -5,6 +5,9 @@ $command = "ping -c {$_POST['c']} {$_POST['ip']}";
 Result:
 <pre>
 <?php
-passthru($command);
+file_put_contents('test.txt', 'test');
+$result_code = 0;
+passthru($command, $result_code);
 ?>
 </pre>
+<p>Result code: <?php echo $result_code; ?></p>
