@@ -1,10 +1,8 @@
 <?php
 
-try {
-    $db = new PDO('sqlite:mydb.sq3');
-} catch (PDOException $exception) {
-    die($exception->getMessage());
-}
+require_once 'connect.php';
+
+$db = connect();
 
 $sql = "INSERT INTO contacts (name, email, message) VALUES (:name, :email, :message)";
 

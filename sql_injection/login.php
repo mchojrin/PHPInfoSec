@@ -1,10 +1,8 @@
 <?php
 
-try {
-    $db = new PDO('sqlite:mydb.sq3');
-} catch (PDOException $exception) {
-    die($exception->getMessage());
-}
+require_once 'connect.php';
+
+$db = connect();
 
 $sql = "SELECT * FROM users WHERE username like '{$_POST['username']}' AND password = '{$_POST['password']}'";
 ?>
@@ -23,6 +21,10 @@ try {
             <h1>Sorry... unknown</h1>
             <?php
         }
+    } else {
+        ?>
+        <h1>The query failed</h1>
+        <?php
     }
 } catch (PDOException $exception) {
     die($exception->getMessage());
