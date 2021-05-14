@@ -1,4 +1,6 @@
 <?php
+session_start();
+session_destroy();
 
 if ($_POST['username'] === 'mauro' && $_POST['password'] === '1234') {
 	session_start();
