@@ -79,5 +79,6 @@ Vagrant.configure("2") do |config|
     echo "No delete" > /vagrant/command_injection/data/test.txt
     chmod o+x /vagrant/command_injection/data
     chmod o+w /vagrant/command_injection/data/test.txt
+    cp hosts /etc/hosts
   SHELL
 end
