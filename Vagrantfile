@@ -70,7 +70,10 @@ Vagrant.configure("2") do |config|
     apt install php7.4-mysql
     mysql -u root -proot < /vagrant/db.sql
     cp /vagrant/vagrant_apache.conf /etc/apache2/sites-available/001-vagrant.conf
+    cp /vagrant/csrf_apache.conf /etc/apache2/sites-available/002-csrf.conf
+
     a2ensite 001-vagrant.conf
+    a2ensite 002-csrf.conf
     a2dissite 000-default.conf
     service apache2 reload
     echo "No delete" > /vagrant/command_injection/data/test.txt
